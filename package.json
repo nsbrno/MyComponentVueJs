@@ -1,7 +1,7 @@
 {
   "name": "mycomponentvuejs",
   "version": "0.0.1",
-  "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais. ",
+  "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais, essas funcionalidade são novas funões próprias. ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
