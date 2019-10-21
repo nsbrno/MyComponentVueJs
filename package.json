@@ -4,8 +4,17 @@
   "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais, essas funcionalidade são novas funões próprias. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vue serve NiceHandsomeButton.vue",
+    "build": "bili --name index --plugin vue --vue.css false"
   },
   "author": "Bruno Nogueira Silva",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vuetify": "^2.1.5",
+    "webpack": "^4.41.2"
+  }
 }
