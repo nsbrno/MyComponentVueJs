@@ -1,0 +1,11 @@
+{
+  "name": "mycomponentvuejs",
+  "version": "0.0.1",
+  "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bruno Nogueira Silva",
+  "license": "MIT"
+}
