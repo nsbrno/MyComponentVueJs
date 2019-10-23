@@ -9,6 +9,9 @@
     :hint="myhint"
     :append-icon="myappendicon"
     :prepend-icon="myprependicon"
+    :outlined="myoutlined"
+    :placeholder="myplaceholder"
+    :filled="myfilled"
     v-bind:value="value"
     v-model="localValue"
     v-on:click:append="clickAppend"
@@ -18,8 +21,9 @@
 <script>
 import { VTextField } from 'vuetify/lib';
 import baseMyRules from "mixins/baseMyRules";
-//import 'vuetify/dist/vuetify.min.css';
-//import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import 'vuetify/dist/vuetify.min.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import '@mdi/font/css/materialdesignicons.css';
 
 export default {
   name: "my-text-field",
@@ -78,6 +82,18 @@ export default {
     myprependicon: {
       type: String,
       default: undefined
+    },
+    myoutlined: {
+      type: Boolean,
+      default: false
+    },
+    myplaceholder: {
+      type: String,
+      defatult: undefined
+    },
+    myfilled: {
+      type: Boolean,
+      default: false
     }
   },
   mixins: [baseMyRules],
@@ -89,7 +105,6 @@ export default {
   watch: {
     value: function(newQuestion, oldQuestion) {
       //console.log('MyTextField - watch - new: ' + newQuestion + ' old: ' + oldQuestion);
-      //console.log('MyTextField - watch - value: ' + this.value);
     }
   },
   computed: {
@@ -100,19 +115,22 @@ export default {
       },
       set: function(value) {
         // Verifica se o campo eh pra deixar tudo em maiusculo
-        if (
-          this.myuppercase &&
-          (this.mytype === "text" ||
-            this.mytype === "password" ||
-            this.mytype === "email") &&
-          value
-        ) {
+        if ( (this.myuppercase) && 
+        ((this.mytype === 'text') || (this.mytype === 'password') || (this.mytype === 'email') )  && 
+        (value) ) {
           value = "" + value.toString().toUpperCase();
         }
         //console.log('component - computed set ' + value);
-        this.$emit("input", value);
+        this.$emit('input', value);
       }
     }
   }
 };
 </script>
+
+<style scoped>
+.my-text-field input{
+    /*Transforma todas entrada de texto em maiuscula*/
+    text-transform: uppercase
+}
+</style>
