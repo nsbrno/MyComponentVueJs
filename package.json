@@ -1,18 +1,21 @@
 {
   "name": "mycomponentvuejs",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais, essas funcionalidade são novas funões próprias. ",
-  "main": "./br/com/nsbruno/src/app/main.js",
+  "main": "./dist/my-component-vuejs.js",
   "scripts": {
     "clean": "rimraf dist",
     "serve": "webpack-dev-server --mode development",
     "build": "npm run clean && webpack --mode production",
-    "vue-serve": "vue-cli-service serve",
-    "vue-build": "vue-cli-service build",
-    "vue-lint": "vue-cli-service lint"
+    "npm-publish": "npm run build && npm whoami && npm publish",
+    "check-update": "npm outdated"
   },
   "author": "Bruno Nogueira Silva <ns.bruno@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsbrno/MyComponentVueJs.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -27,6 +30,7 @@
     "sass": "^1.23.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
     "url-loader": "^2.2.0",

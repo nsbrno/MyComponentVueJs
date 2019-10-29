@@ -21,9 +21,9 @@
 <script>
 import { VTextField } from 'vuetify/lib';
 import baseMyRules from "mixins/baseMyRules";
-import 'vuetify/dist/vuetify.min.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import '@mdi/font/css/materialdesignicons.css';
+//import 'vuetify/dist/vuetify.min.css';
+//import 'material-design-icons-iconfont/dist/material-design-icons.css';
+//import '@mdi/font/css/materialdesignicons.css';
 
 export default {
   name: "my-text-field",
