@@ -5,6 +5,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 /**
  * Configuracoes comum para ser usado em varios tipos de configuracoes diferentes do Webpack.
@@ -88,11 +89,7 @@ var commonConfig = {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
-  externals: {
-    vuetify: "vuetify",
-    VTextField: "VTextField",
-    vue: "Vue"
-  }
+  externals: [nodeExternals()]
 };
 
 module.exports = [
@@ -105,7 +102,7 @@ module.exports = [
     }
   }),
   merge(commonConfig, {
-    entry: path.resolve(__dirname + "/br/com/nsbruno/src/components/MyTextField.vue"),
+    entry: path.resolve(__dirname + "/br/com/nsbruno/src/plugin.js"),
     output: {
       filename: "my-component-vuejs.js",
       libraryTarget: "umd",

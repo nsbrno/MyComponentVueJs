@@ -3,6 +3,8 @@
     <h2>Home</h2>
     <br>
     <a href="TextField">Text Field</a>
+    <br>
+    <a href="UserAuthentication">User Authentication</a>
   </v-container>
 </template>
 

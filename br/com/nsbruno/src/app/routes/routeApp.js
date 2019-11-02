@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../pages/Home/Home";
 import TextField from "../pages/TextField/Usage";
+import UserAuthentication from "../pages/UserAuthentication/Usage";
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,11 @@ export default new VueRouter({
       path: "/TextField",
       name: "TextField",
       component: TextField
+    },
+    {
+      path: "/UserAuthentication",
+      name: "UserAuthentication",
+      component: UserAuthentication
     }
   ]
 });

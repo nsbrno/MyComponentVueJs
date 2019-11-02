@@ -1,4 +1,4 @@
-.my-text-field input{
+.my-text-field v-text-field{
     /*Transforma todas entrada de texto em maiuscula*/
     text-transform: uppercase
 }

@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import MyTextField from "components/MyTextField";
+import MyTextField from "components/MyTextField/MyTextField";
 
 export default {
   components: {

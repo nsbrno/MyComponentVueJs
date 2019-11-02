@@ -1,7 +1,9 @@
 import MyTextField from './components/MyTextField.vue';
+import MyUserAuthentication from './components/MyUserAuthentication.vue';
 
 const Components = {
-  MyTextField
+  MyTextField,
+  MyUserAuthentication
 };
 
 Object.keys(Components).forEach(name => {
