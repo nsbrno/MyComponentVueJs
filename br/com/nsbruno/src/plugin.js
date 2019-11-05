@@ -1,11 +1,13 @@
 import MyTextField from "./components/MyTextField/MyTextField";
 import MyUserAuthentication from './components/MyUserAuthentication/MyUserAuthentication';
+import MyDialogMessage from './components/MyDialogMessage/MyDialogMessage';
 import MyBaseMixins from './mixins/MyBaseMixins';
 import Webservices from './mixins/Webservices'
 
 const Components = {
   MyTextField,
-  MyUserAuthentication
+  MyUserAuthentication,
+  MyDialogMessage
 }
 
 const Mixins = {
