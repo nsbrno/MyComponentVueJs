@@ -4,7 +4,7 @@
  * Author     : Bruno Nogueira Silva
  */
 import axios from "axios";
-import DefaultMessege from "../environments/DefaultMessege";
+import DefaultMessage from "../environments/DefaultMessage";
 
 export default {
   data: {
@@ -127,7 +127,7 @@ export default {
           reject({
             statusReturn: {
               idReturn: 0,
-              msg: DefaultMessege.METHOD_NOT_DEFINED,
+              msg: DefaultMessage.METHOD_NOT_DEFINED,
               msgExtra:
                 "O nome do method(metodo) que foi enviado é: " + method
             }

@@ -3,7 +3,7 @@
     <v-container>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
-          <my-user-authentication @input-my-user-authentication="getUser($event)"></my-user-authentication>
+          <my-user-authentication @input-my-user-authentication="getUser"></my-user-authentication>
         </v-flex>
       </v-layout>
 

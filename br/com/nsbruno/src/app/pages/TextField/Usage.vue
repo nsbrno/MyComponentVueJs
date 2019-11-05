@@ -13,57 +13,57 @@
       <v-row>
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Default"
+            label="Default"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            myprependicon="devices"
-            mylabel="Prepend Icon"
+            prepend-icon="devices"
+            label="Prepend Icon"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field
-            :myrequired="true"
-            mylabel="Required"
+            :required="true"
+            label="Required"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Placeholder" 
-            myplaceholder="Placeholder"
+            label="Placeholder" 
+            placeholder="Placeholder"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Filled" 
-            :myfilled="true"
+            label="Filled" 
+            :filled="true"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Max Length" 
-            :mymaxlength="20"
+            label="Max Length" 
+            :maxlength="20"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Outlined" 
-            :myoutlined="true"
+            label="Outlined" 
+            :outlined="true"
           ></my-text-field>
         </v-col>
 
         <v-col cols="12" sm="6" md="3">
           <my-text-field 
-            mylabel="Placeholder and Outlined" 
-            myplaceholder="Placeholder"
-            :myoutlined="true"
+            label="Placeholder and Outlined" 
+            placeholder="Placeholder"
+            :outlined="true"
           ></my-text-field>
         </v-col>
       </v-row>
