@@ -1,6 +1,6 @@
 {
   "name": "mycomponentvuejs",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais, essas funcionalidade são novas funões próprias. ",
   "main": "./dist/my-component-vuejs.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.6.3",
     "@mdi/font": "^4.5.95",
     "@vue/cli-service": "^4.0.4",
+    "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "deepmerge": "^4.2.0",

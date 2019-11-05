@@ -1,11 +1,11 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require('webpack-merge');
+const merge = require("webpack-merge");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
-const TerserPlugin = require('terser-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+const TerserPlugin = require("terser-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
 
 /**
  * Configuracoes comum para ser usado em varios tipos de configuracoes diferentes do Webpack.
@@ -57,7 +57,15 @@ var commonConfig = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: "url-loader"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              name: "[name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
@@ -79,7 +87,8 @@ var commonConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./br/com/nsbruno/src/app/index.html")
+      template: path.resolve(__dirname, "./br/com/nsbruno/src/app/index.html"),
+      favicon: "./br/com/nsbruno/src/app/assets/icon/favicon.png"
     }),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -87,7 +96,7 @@ var commonConfig = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin()]
   },
   externals: [nodeExternals()]
 };

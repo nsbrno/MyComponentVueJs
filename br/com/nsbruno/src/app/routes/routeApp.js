@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../pages/Home/Home";
 import TextField from "../pages/TextField/Usage";
 import UserAuthentication from "../pages/UserAuthentication/Usage";
+import MyDialogMessage from "../pages/MyDialogMessage/Usage"
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ export default new VueRouter({
       path: "/UserAuthentication",
       name: "UserAuthentication",
       component: UserAuthentication
+    },
+    {
+      path: "/MyDialogMessage",
+      name: "MyDialogMessage",
+      component: MyDialogMessage
     }
   ]
 });
