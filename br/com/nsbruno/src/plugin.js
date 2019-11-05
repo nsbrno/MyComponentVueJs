@@ -1,6 +1,7 @@
 import MyTextField from "./components/MyTextField/MyTextField";
 import MyUserAuthentication from './components/MyUserAuthentication/MyUserAuthentication';
 import MyBaseMixins from './mixins/MyBaseMixins';
+import Webservices from './mixins/Webservices'
 
 const Components = {
   MyTextField,
@@ -8,7 +9,8 @@ const Components = {
 }
 
 const Mixins = {
-  MyBaseMixins
+  MyBaseMixins,
+  Webservices
 }
 
 const ComponentLibrary = {
