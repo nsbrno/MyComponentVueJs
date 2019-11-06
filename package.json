@@ -1,6 +1,6 @@
 {
   "name": "mycomponentvuejs",
-  "version": "0.0.21",
+  "version": "0.0.24",
   "description": "Componentes similares ao Vuetify mas com algumas funcionalidades a mais, essas funcionalidade são novas funões próprias. ",
   "main": "./dist/my-component-vuejs.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "version-next-0.0.X": "npm version patch",
     "version-minor-0.X.0": "npm version minor",
     "version-major-X.0.0": "npm version major",
-    "npm-publish": "npm run build && npm whoami && npm publish && npm version-next-0.0.X",
+    "npm-publish": "npm run build && npm whoami && npm publish",
     "check-update": "npm outdated"
   },
   "author": "Bruno Nogueira Silva <ns.bruno@gmail.com>",
@@ -21,7 +21,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.6.3",
+    "@babel/runtime": "^7.7.1",
     "@mdi/font": "^4.5.95",
     "@vue/cli-service": "^4.0.4",
     "axios": "^0.19.0",

@@ -6,11 +6,12 @@
       </v-card-title>
 
       <v-card-text>
-        {{myDataDialog.msg}}
+        <p class="mt-5 mb-12 body-1 black--text">{{myDataDialog.msg}}</p>
+
         <v-expansion-panels focusable>
           <v-expansion-panel v-if="myDataDialog.msgExtra">
             <v-expansion-panel-header>Extra</v-expansion-panel-header>
-            <v-expansion-panel-content>{{myDataDialog.msgExtra}}</v-expansion-panel-content>
+            <v-expansion-panel-content class="mt-5">{{myDataDialog.msgExtra}}</v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
       </v-card-text>
@@ -61,11 +62,11 @@ export default {
       var classDefine = "headline white--text ";
 
       if (this.type === "success") {
-        return classDefine += "success";
+        return (classDefine += "success");
       } else if (this.type === "info") {
         return (classDefine += "info");
       } else if (this.type === "error") {
-        return classDefine += "error";
+        return (classDefine += "error");
       } else {
         return classDefine.replace("white--text", "grey lighten-1");
       }

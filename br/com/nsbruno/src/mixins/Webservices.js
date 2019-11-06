@@ -7,11 +7,13 @@ import axios from "axios";
 import DefaultMessage from "../environments/DefaultMessage";
 
 export default {
-  data: {
-    GET: "GET",
-    POST: "POST",
-    DELETE: "DELETE",
-    PUT: "PUT"
+  data() {
+    return {
+      GET: "GET",
+      POST: "POST",
+      DELETE: "DELETE",
+      PUT: "PUT"
+    };
   },
   methods: {
     /**
@@ -32,7 +34,13 @@ export default {
                   }
                 }
      */
-    returnWebserviceJsonPromise: function(url, method, authentication, data, parametersUrl) {
+    returnWebserviceJsonPromise: function(
+      url,
+      method,
+      authentication,
+      data,
+      parametersUrl
+    ) {
       data = data ? data : {};
       parametersUrl = parametersUrl ? parametersUrl : null;
       authentication = authentication ? authentication : null;
@@ -75,9 +83,11 @@ export default {
       return new Promise((resolve, reject) => {
         // Checa se o que esta sendo solicidade é o metodo GET
         if (method && (method === "GET" || method === "get")) {
-
-        // Checa se o que esta sendo solicidade é o metodo POST
-        } else if (method && (method.toUpperCase() === "POST" || method === "post")) {
+          // Checa se o que esta sendo solicidade é o metodo POST
+        } else if (
+          method &&
+          (method.toUpperCase() === "POST" || method === "post")
+        ) {
           axios
             .post(url, data, configuration)
             .then(function(response) {
@@ -128,8 +138,7 @@ export default {
             statusReturn: {
               idReturn: 0,
               msg: DefaultMessage.METHOD_NOT_DEFINED,
-              msgExtra:
-                "O nome do method(metodo) que foi enviado é: " + method
+              msgExtra: "O nome do method(metodo) que foi enviado é: " + method
             }
           });
         }
@@ -154,9 +163,21 @@ export default {
                   }
                 }
      */
-    conectWebserviceJson: async function(url, method, authentication, data, parametersUrl ) {
+    conectWebserviceJson: async function(
+      url,
+      method,
+      authentication,
+      data,
+      parametersUrl
+    ) {
       try {
-        return await this.returnWebserviceJsonPromise(url, method, authentication, data, parametersUrl);
+        return await this.returnWebserviceJsonPromise(
+          url,
+          method,
+          authentication,
+          data,
+          parametersUrl
+        );
       } catch (error) {
         throw error;
       }
