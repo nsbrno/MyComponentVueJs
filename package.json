@@ -12,7 +12,7 @@
     "version-major-X.0.0": "npm version major",
     "npm-publish": "npm run build && npm whoami && npm publish && npm run version-next-0.0.X",
     "check-update": "npm outdated",
-    "git-push": "git push --tags origin master"
+    "git-push": "git add * && git commit -m \"Publish npm\" && git push --tags origin master"
   },
   "author": "Bruno Nogueira Silva <ns.bruno@gmail.com>",
   "license": "MIT",
