@@ -30,6 +30,7 @@
 <script>
 import MyUserAuthentication from "components/MyUserAuthentication/MyUserAuthentication";
 import MyBaseRules from "mixins/MyBaseRules";
+import axios from "axios";
 
 export default {
   components: {

@@ -53,13 +53,13 @@ export default {
       };
       // Checa se foi passado alguma identificação de usuário e senha
       if (authentication) {
-        let ConfigAuth = {
+        let configAuth = {
           auth: {
             username: authentication.username,
             password: authentication.password
           }
         };
-        configuration = Object.assign({}, configHeaders, ConfigAuth);
+        configuration = Object.assign({}, configHeaders, configAuth);
       }
       if (parametersUrl) {
         var size = 0;
@@ -121,6 +121,8 @@ export default {
                 if (error.response.status) {
                   idStatus = error.response.status;
                   msgReturn = msgReturn + " Código: " + idStatus;
+                } else {
+                  idStatus = 0;
                 }
                 if (error.response.statusText) {
                   msgReturn =
