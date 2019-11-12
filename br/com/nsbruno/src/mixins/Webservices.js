@@ -44,20 +44,22 @@ export default {
       data = data ? data : {};
       parametersUrl = parametersUrl ? parametersUrl : null;
       authentication = authentication ? authentication : null;
+      let configuration = {};
 
-      let configuration = {
+      let configHeaders = {
         headers: {
           Accept: "application/json"
         }
       };
       // Checa se foi passado alguma identificação de usuário e senha
       if (authentication) {
-        configuration += {
+        let ConfigAuth = {
           auth: {
             username: authentication.username,
             password: authentication.password
           }
         };
+        configuration = Object.assign({}, configHeaders, ConfigAuth);
       }
       if (parametersUrl) {
         var size = 0;
@@ -111,27 +113,40 @@ export default {
             })
             .catch(function(error) {
               //console.log('log webservice do catch axios response: ' + error);
-              var msgRetorno = "";
+              var msgReturn = "";
+              var msgReturnExtra = "";
+              var idStatus = 0;
               // Verifica se tem mais algum dado importate para mostrar na mensagem de erro
               if (error.response) {
-                msgRetorno =
-                  msgRetorno +
+                if (error.response.status) {
+                  idStatus = error.response.status;
+                  msgReturn = msgReturn + " Código: " + idStatus;
+                }
+                if (error.response.statusText) {
+                  msgReturn =
+                    msgReturn + " Status: " + error.response.statusText;
+                }
+                msgReturnExtra =
+                  msgReturnExtra +
                   "\n response.data: " +
                   JSON.stringify(error.response.data);
-                msgRetorno =
-                  msgRetorno +
+                msgReturnExtra =
+                  msgReturnExtra +
                   "\n response.headers: " +
                   JSON.stringify(error.response.headers);
               } else if (error.request) {
-                msgRetorno = msgRetorno + "\n request: " + error.request;
+                msgReturnExtra =
+                  msgReturnExtra + "\n request: " + error.request;
               } else {
-                msgRetorno = msgRetorno + "\n message: " + error.message;
+                msgReturnExtra =
+                  msgReturnExtra + "\n message: " + error.message;
               }
+              msgReturn = msgReturn + " | " + error.toString();
               reject({
                 statusReturn: {
-                  idReturn: 0,
-                  msg: error.toString(),
-                  msgExtra: msgRetorno
+                  idReturn: idStatus,
+                  msg: msgReturn,
+                  msgExtra: msgReturnExtra
                 }
               });
             });
