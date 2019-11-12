@@ -10,7 +10,7 @@
 
         <v-expansion-panels focusable>
           <v-expansion-panel v-if="myDataDialog.msgExtra">
-            <v-expansion-panel-header>Extra</v-expansion-panel-header>
+            <v-expansion-panel-header class="font-weight-black">Extra</v-expansion-panel-header>
             <v-expansion-panel-content class="mt-5">{{myDataDialog.msgExtra}}</v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>

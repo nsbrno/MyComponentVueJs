@@ -115,7 +115,9 @@ export default {
               // Verifica se tem mais algum dado importate para mostrar na mensagem de erro
               if (error.response) {
                 msgRetorno =
-                  msgRetorno + "\n response.data: " + error.response.data;
+                  msgRetorno +
+                  "\n response.data: " +
+                  JSON.stringify(error.response.data);
                 msgRetorno =
                   msgRetorno +
                   "\n response.headers: " +

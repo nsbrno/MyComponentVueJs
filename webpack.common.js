@@ -3,8 +3,6 @@ const webpack = require("webpack");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   output: {
