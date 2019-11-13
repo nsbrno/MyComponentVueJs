@@ -99,10 +99,19 @@ export default {
                 resolve({
                   idReturn: response.status,
                   object: (response.data.content ? response.data.content : response.data.object),
-                  page: response.data.page
+                  pageable: response.data.pageable,
+                  last: response.data.last,
+                  totalElements: response.data.totalElements,
+                  totalPages: response.data.totalPages,
+                  size: response.data.size,
+                  number: response.data.number,
+                  sort: response.data.sort,
+                  numberOfElements: response.data.numberOfElements,
+                  first: response.data.first,
+                  empty: response.data.empty
                 });
               } else {
-                reject({
+                reject({ 
                   statusReturn: {
                     idReturn: response.status,
                     msg: response.statusText,
