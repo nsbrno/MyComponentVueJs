@@ -98,7 +98,7 @@ export default {
               if (response.status === 200) {
                 resolve({
                   idReturn: response.status,
-                  object: response.data.object,
+                  object: (response.data.content ? response.data.content : response.data.object),
                   page: response.data.page
                 });
               } else {
