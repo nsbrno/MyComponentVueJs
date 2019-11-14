@@ -93,12 +93,17 @@ export default {
           axios
             .post(url, data, configuration)
             .then(function(response) {
-              console.log('log webservice do then axios response: ' + JSON.stringify(response));
+              console.log(
+                "log webservice do then axios response: " +
+                  JSON.stringify(response)
+              );
               // Checa o status do header do rest
               if (response.status === 200) {
                 resolve({
                   idReturn: response.status,
-                  object: (response.data.content ? response.data.content : response.data.object),
+                  content: response.data.content
+                    ? response.data.content
+                    : response.data,
                   pageable: response.data.pageable,
                   last: response.data.last,
                   totalElements: response.data.totalElements,
@@ -111,11 +116,23 @@ export default {
                   empty: response.data.empty
                 });
               } else {
-                reject({ 
+                reject({
                   statusReturn: {
                     idReturn: response.status,
-                    msg: response.statusText,
-                    msgExtra: ""
+                    msg:
+                      response.statusText +
+                      (response.data.path
+                        ? " \n| Path: " + response.data.path
+                        : "") +
+                      (response.data.error
+                        ? " \n(Error: " + response.data.error + ") "
+                        : "") +
+                      (response.data.message
+                        ? " |\n Message:" + response.data.message
+                        : ""),
+                    msgExtra: response.data.trace
+                      ? " |\n Trace:" + response.data.trace
+                      : JSON.stringify(response.data)
                   }
                 });
               }
