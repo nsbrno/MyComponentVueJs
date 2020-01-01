@@ -76,6 +76,7 @@ export default {
           this.url, // URL
           this.POST, // Metodo
           { username: user, password: password }, // {username: user, password: pass}
+          {Accept: "application/json", "device": device}, // {key: value, key: value, ...}
           null, // Dados
           null // Parametros URL
         )

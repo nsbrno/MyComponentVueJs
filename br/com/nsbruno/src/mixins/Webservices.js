@@ -38,6 +38,7 @@ export default {
       url,
       method,
       authentication,
+      headers,
       data,
       parametersUrl
     ) {
@@ -46,11 +47,15 @@ export default {
       authentication = authentication ? authentication : null;
       let configuration = {};
 
-      let configHeaders = {
+      /*let configHeaders = {
         headers: {
           Accept: "application/json"
         }
-      };
+      };*/
+      // Cria uma variavel para salvar os headers
+      let configHeaders = {headers:{}};
+      // Adiciona o header passado por parametro em uma estrutura aceita pelo axios
+      Object.assign(configHeaders.headers, headers);
       // Checa se foi passado alguma identificação de usuário e senha
       if (authentication) {
         let configAuth = {
@@ -212,6 +217,7 @@ export default {
       url,
       method,
       authentication,
+      headers,
       data,
       parametersUrl
     ) {
@@ -220,6 +226,7 @@ export default {
           url,
           method,
           authentication,
+          headers,
           data,
           parametersUrl
         );
