@@ -29,6 +29,18 @@
     <v-card-text>
       <v-form v-model="valid">
         <my-text-field
+          v-if="withDevice"
+          label="Dispositivo"
+          prepend-icon="devices"
+          :append-icon="showDevice ? 'visibility_off' : 'visibility'"
+          :maxlength="20"
+          :type="showDevice ? 'text' : 'password'"
+          v-model="device"
+          @click:append="showDevice = !showDevice"
+          :rules="[rules.required, rules.noSpaceAllowed]"
+        ></my-text-field>
+
+        <my-text-field
           label="Usuário"
           prepend-icon="person"
           :maxlength="60"
@@ -50,7 +62,9 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="emitClick()" :disabled="!valid">Entrar</v-btn>
+      <v-btn color="primary" @click="emitClick()" :disabled="!valid"
+        >Entrar</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
@@ -69,8 +83,10 @@ export default {
     return {
       valid: false,
       showPassword: false,
+      showDevice: false,
       user: this.myuser,
-      password: this.mypassword
+      password: this.mypassword,
+      device: this.mydevice
     };
   },
   props: {
@@ -81,11 +97,19 @@ export default {
     mypassword: {
       type: String,
       default: undefined
+    },
+    mydevice: {
+      type: String,
+      default: undefined
+    },
+    withDevice: {
+      type:Boolean,
+      default: false
     }
   },
   methods: {
     emitClick() {
-      this.$emit("input-my-user-authentication", this.user, this.password);
+      this.$emit("input-my-user-authentication", this.user, this.password, this.device);
     }
   }
 };
