@@ -33,7 +33,7 @@
           label="Dispositivo"
           prepend-icon="devices"
           :append-icon="showDevice ? 'visibility_off' : 'visibility'"
-          :maxlength="20"
+          :maxlength="40"
           :type="showDevice ? 'text' : 'password'"
           v-model="device"
           @click:append="showDevice = !showDevice"
