@@ -98,10 +98,7 @@ export default {
           axios
             .post(url, data, configuration)
             .then(function(response) {
-              console.log(
-                "log webservice do then axios response: " +
-                  JSON.stringify(response)
-              );
+              //console.log("log webservice do then axios response: " + JSON.stringify(response));
               // Checa o status do header do rest
               if (response.status === 200) {
                 resolve({

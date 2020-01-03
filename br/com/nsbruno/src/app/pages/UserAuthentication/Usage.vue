@@ -5,7 +5,9 @@
         <v-col cols="auto">
             <my-user-authentication
               @input-my-user-authentication="getUser"
+              :myloading="loading"
             ></my-user-authentication>
+
         </v-col>
 
         <v-col cols="auto">
@@ -24,6 +26,8 @@
             v-model="url"
             :uppercase="false"
           ></my-text-field>
+          <h2>Loading: {{ loading }}</h2>
+          <br />
           <h2>Device: {{ device }}</h2>
           <br />
           <h2>Usuário: {{ usuario }}</h2>
@@ -58,6 +62,7 @@ export default {
       senha: "",
       device: "",
       url: "",
+      loading: false,
       returnWebservice: {
         idReturn: 0,
         msg: "",
@@ -70,7 +75,8 @@ export default {
       //console.log('Usage - getUser - usuario: ' + user + " | Senha: " + password);
       this.usuario = user;
       this.senha = password;
-      this.device = device
+      this.device = device;
+      this.loading = true;
       try {
         this.conectWebserviceJson(
           this.url, // URL
@@ -81,12 +87,14 @@ export default {
           null // Parametros URL
         )
           .then(retorno => {
+            this.loading = false;
             console.log("Vai para outra tela");
             this.returnWebservice = retorno.object;
             console.log(this.returnWebservice);
             sessionStorage.setItem("usuarios", this.returnWebservice);
           })
           .catch(error => {
+            this.loading = false;
             //console.log('log encription do catch response: ' + JSON.stringify(error));
             if (error.statusReturn) {
               if (error.statusReturn.idReturn != 0) {
@@ -106,6 +114,7 @@ export default {
             this.dialogError = true;
           });
       } catch (error) {
+        this.loading = false;
         if (error.message) {
           this.returnWebservice.msg = error.message;
         } else {

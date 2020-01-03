@@ -62,7 +62,11 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="emitClick()" :disabled="!valid"
+      <v-btn
+        @click="emitClick()"
+        color="primary"
+        :disabled="!valid"
+        :loading="myloading"
         >Entrar</v-btn
       >
     </v-card-actions>
@@ -86,7 +90,7 @@ export default {
       showDevice: false,
       user: this.myuser,
       password: this.mypassword,
-      device: this.mydevice
+      device: this.mydevice,
     };
   },
   props: {
@@ -103,13 +107,22 @@ export default {
       default: undefined
     },
     withDevice: {
-      type:Boolean,
+      type: Boolean,
+      default: false
+    },
+    myloading: {
+      type: Boolean,
       default: false
     }
   },
   methods: {
     emitClick() {
-      this.$emit("input-my-user-authentication", this.user, this.password, this.device);
+      this.$emit(
+        "input-my-user-authentication",
+        this.user,
+        this.password,
+        this.device
+      );
     }
   }
 };
