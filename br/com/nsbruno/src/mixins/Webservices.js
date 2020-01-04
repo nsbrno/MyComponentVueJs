@@ -91,7 +91,7 @@ export default {
         // Checa se o que esta sendo solicidade é o metodo GET
         if (method && (method === "GET" || method === "get")) {
           axios
-            .post(url, configuration)
+            .get(url, configuration)
             .then(function(response) {
               // Checa o status do header do rest
               if (response.status === 200) {
