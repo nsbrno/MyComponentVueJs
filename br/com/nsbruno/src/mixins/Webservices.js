@@ -53,7 +53,7 @@ export default {
         }
       };*/
       // Cria uma variavel para salvar os headers
-      let configHeaders = {headers:{}};
+      let configHeaders = { headers: {} };
       // Adiciona o header passado por parametro em uma estrutura aceita pelo axios
       Object.assign(configHeaders.headers, headers);
       // Checa se foi passado alguma identificação de usuário e senha
@@ -90,6 +90,91 @@ export default {
       return new Promise((resolve, reject) => {
         // Checa se o que esta sendo solicidade é o metodo GET
         if (method && (method === "GET" || method === "get")) {
+          axios
+            .post(url, configuration)
+            .then(function(response) {
+              // Checa o status do header do rest
+              if (response.status === 200) {
+                resolve({
+                  idReturn: response.status,
+                  content: response.data.content
+                    ? response.data.content
+                    : response.data,
+                  pageable: response.data.pageable,
+                  last: response.data.last,
+                  totalElements: response.data.totalElements,
+                  totalPages: response.data.totalPages,
+                  size: response.data.size,
+                  number: response.data.number,
+                  sort: response.data.sort,
+                  numberOfElements: response.data.numberOfElements,
+                  first: response.data.first,
+                  empty: response.data.empty
+                });
+              } else {
+                reject({
+                  statusReturn: {
+                    idReturn: response.status,
+                    msg:
+                      response.statusText +
+                      (response.data.path
+                        ? " \n| Path: " + response.data.path
+                        : "") +
+                      (response.data.error
+                        ? " \n(Error: " + response.data.error + ") "
+                        : "") +
+                      (response.data.message
+                        ? " |\n Message:" + response.data.message
+                        : ""),
+                    msgExtra: response.data.trace
+                      ? " |\n Trace:" + response.data.trace
+                      : JSON.stringify(response.data)
+                  }
+                });
+              }
+            })
+            .catch(function(error) {
+              //console.log('log webservice do catch axios response: ' + error);
+              var msgReturn = "";
+              var msgReturnExtra = "";
+              var idStatus = 0;
+              // Verifica se tem mais algum dado importate para mostrar na mensagem de erro
+              if (error.response) {
+                if (error.response.status) {
+                  idStatus = error.response.status;
+                  msgReturn = msgReturn + " Código: " + idStatus;
+                } else {
+                  idStatus = 0;
+                }
+                if (error.response.statusText) {
+                  msgReturn =
+                    msgReturn + " Status: " + error.response.statusText;
+                }
+                msgReturnExtra =
+                  msgReturnExtra +
+                  "\n response.data: " +
+                  JSON.stringify(error.response.data);
+                msgReturnExtra =
+                  msgReturnExtra +
+                  "\n response.headers: " +
+                  JSON.stringify(error.response.headers);
+              } else if (error.request) {
+                msgReturnExtra =
+                  msgReturnExtra + "\n request: " + error.request;
+              } else {
+                msgReturnExtra =
+                  msgReturnExtra + "\n message: " + error.message;
+              }
+              msgReturn = msgReturn + " | " + error.toString();
+              reject({
+                statusReturn: {
+                  idReturn: idStatus,
+                  msg: msgReturn,
+                  msgExtra: msgReturnExtra
+                }
+              });
+            });
+
           // Checa se o que esta sendo solicidade é o metodo POST
         } else if (
           method &&

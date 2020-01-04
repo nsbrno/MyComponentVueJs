@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import TextField from "../pages/TextField/Usage";
 import UserAuthentication from "../pages/UserAuthentication/Usage";
 import MyDialogMessage from "../pages/MyDialogMessage/Usage"
+import RequestRestApi from "../pages/RequestRestApi/Usage"
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ export default new VueRouter({
       path: "/MyDialogMessage",
       name: "MyDialogMessage",
       component: MyDialogMessage
+    },
+    {
+      path: "/RequestRestApi",
+      name: "RequestRestApi",
+      component: RequestRestApi
     }
   ]
 });
